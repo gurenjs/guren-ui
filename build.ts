@@ -586,7 +586,7 @@ function page(opts: {
 }) {
   const html = `<!-- @dsCard group="${opts.group}" -->
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -687,13 +687,13 @@ page({
 .crr.fill{color:var(--g-muted)}`,
   body: `<div class="doc">
   ${eyebrow('Foundations / <b>colour</b>')}
-  <h1 class="h">二つのテーマ、一つの赤</h1>
-  <p class="sub">ライトは guren.dev docs のライトテーマ（白地 + crimson）、ダークは同じ docs のダークテーマ（rose-pine-moon 由来の地に rose のアクセント）。塗りの crimson-600 は両テーマ共通で、アクセント<b>テキスト</b>だけがテーマで動く。比率は測定値で、4.5:1 未満の色にテキストの仕事を与えない。</p>
+  <h1 class="h">Two themes, one red</h1>
+  <p class="sub">Light is the docs light theme guren.dev ships (white + crimson); dark is the same docs' dark theme (a rose-pine-moon ground with a rose accent). The crimson-600 fill is shared by both themes — only accent <b>text</b> moves. Every ratio below is measured, and no colour under 4.5:1 gets a text job.</p>
   <div class="cols">
-    <div class="col"><p class="tag">light · 対地 ${C.page}</p>${swatchRows(lightSwatches, 'light')}</div>
-    <div class="col dark"><p class="tag">dark · 対地 ${C.dPage}</p>${swatchRows(darkSwatches, 'dark')}</div>
+    <div class="col"><p class="tag">light · on ${C.page}</p>${swatchRows(lightSwatches, 'light')}</div>
+    <div class="col dark"><p class="tag">dark · on ${C.dPage}</p>${swatchRows(darkSwatches, 'dark')}</div>
   </div>
-  <p class="note">crimson-500 <code>#f23a3a</code> はダーク地で ${cr(C.dangerChip, C.dPage)}:1。docs が自らダークのアクセントを rose <code>#eb6f92</code>（${cr(C.dAccentText, C.dPage)}:1）に切り替えているのはこのためで、本キットも同じ判断に従う。デッキが blush を選んだのと同じ理屈の、アプリ側の答え。</p>
+  <p class="note">crimson-500 <code>#f23a3a</code> measures ${cr(C.dangerChip, C.dPage)}:1 on the dark ground. That is why the docs themselves switch their dark accent to rose <code>#eb6f92</code> (${cr(C.dAccentText, C.dPage)}:1), and this kit follows — the deck's blush reasoning, answered for apps.</p>
 </div>`,
 })
 
@@ -712,18 +712,18 @@ page({
 .s12d{font:400 12.5px/1.7 var(--g-font-mono);color:var(--g-text)}`,
   body: `<div class="doc">
   ${eyebrow('Foundations / <b>typography</b>')}
-  <h1 class="h">ゴシック一系統、対比はモノに払う</h1>
-  <p class="sub">UI テキストは Noto Sans JP の 400/700 のみ。第二書体はデッキと同じく JetBrains Mono で、アプリでは「機械が発行した値」、すなわち ID・日時・数値・キー・コードだけがモノになる。かなを持たない display 書体は使わない。</p>
+  <h1 class="h">One gothic family; the contrast is spent on mono</h1>
+  <p class="sub">UI text is Noto Sans JP at 400/700 only — one family covering Latin, kana and kanji, so a bilingual Guren app never falls back mid-sentence. The second face is JetBrains Mono, and in an app only machine-issued values — IDs, timestamps, counts, keys, code — get to be mono.</p>
   <div class="spec">
-    <span class="m">26 / 700 / -1%</span><span class="s32">ダッシュボード</span>
-    <span class="m">20 / 700 / -1%</span><span class="s20">ページタイトル（tick 付き）</span>
-    <span class="m">15 / 700</span><span class="s15">カード見出し</span>
-    <span class="m">14 / 400 / 1.6</span><span class="s14">本文。フォームの値もこのサイズ。日本語 UI の既定。</span>
-    <span class="m">13 / 400</span><span class="s13">補助テキスト、ヘルプ行。</span>
+    <span class="m">26 / 700 / -1%</span><span class="s32">Dashboard</span>
+    <span class="m">20 / 700 / -1%</span><span class="s20">Page title (carries the tick)</span>
+    <span class="m">15 / 700</span><span class="s15">Card heading</span>
+    <span class="m">14 / 400 / 1.6</span><span class="s14">Body text — form values share this size. 日本語もこの一家族で組まれる。</span>
+    <span class="m">13 / 400</span><span class="s13">Help text, secondary lines.</span>
     <span class="m">11.5 mono / caps</span><span class="s12m">table header · nav section</span>
     <span class="m">12.5 mono</span><span class="s12d">post_2041 · 2026-08-20 14:32 · guren check --json</span>
   </div>
-  <p class="note">数字の列（テーブルの金額、件数）は必ずモノ + 右揃え。桁が縦に揃わない数字の列は読めない。<code>font-family</code> に固有名を書くのは self-host した二家族だけで、フォールバックは総称キーワードのみ。供給できない名前は書かない。</p>
+  <p class="note">Columns of numbers (amounts, counts) are always mono and right-aligned — digits that do not line up vertically cannot be read. The only names in <code>font-family</code> are the two self-hosted families; fallbacks are generic keywords only. Never name a face you cannot supply.</p>
 </div>`,
 })
 
@@ -738,15 +738,15 @@ page({
 .g .v code{font-family:var(--g-font-mono);font-size:11.5px;color:var(--g-accent-text)}`,
   body: `<div class="doc">
   ${eyebrow('Foundations / <b>surface</b>')}
-  <h1 class="h">4px グリッド、角丸二種、影二種</h1>
-  <p class="sub">寸法の語彙を小さく保つ。コントロールは 8px、カードは 12px の角丸。影はカード用と浮遊要素用の二つだけで、どちらも docs が出荷している値。テーマは <code>:root.dark</code>（サブツリーなら <code>.dark</code>）の一クラスで、全コンポーネントがトークン経由で追従する。</p>
+  <h1 class="h">A 4px grid, two radii, two shadows</h1>
+  <p class="sub">Keep the vocabulary of dimensions small. Controls round at 8px, cards at 12px. Two shadows only — resting and floating, both values the docs ship. Theming is one class, <code>:root.dark</code> (or <code>.dark</code> on any subtree); every component follows through the tokens.</p>
   <div class="geo">
-    <div class="g"><p class="t">spacing</p><p class="v">4 · 8 · 12 · 16 · 20 · 24 · 32 · 48。コンポーネント内は 8–16、コンポーネント間は 20–32。</p></div>
-    <div class="g"><p class="t">radius</p><p class="v"><code>--g-r-ctl: 8px</code>: ボタン、入力、タブ。<br><code>--g-r-card: 12px</code>: カード、モーダル、コード面。</p></div>
-    <div class="g"><p class="t">elevation</p><p class="v"><code>--g-shadow-card</code> は常設面、<code>--g-shadow-float</code> はモーダルとトースト。枠線が主、影は従。</p></div>
-    <div class="g"><p class="t">tick</p><p class="v">ember tick（ロゴのグラデーションの 3px 断片）は<b>一画面に一箇所</b>: ページタイトルか、ナビの現在地。両方が同時に見える場合はナビに譲る。</p></div>
-    <div class="g"><p class="t">theme</p><p class="v">塗り（crimson）と ink 面はテーマ不変。動くのはテキスト・地・線のトークンだけ。</p></div>
-    <div class="g"><p class="t">focus</p><p class="v">フォーカスリングは 2px の crimson アウトライン。テーマで動かさない。どちらの地でも見える唯一の赤。</p></div>
+    <div class="g"><p class="t">spacing</p><p class="v">4 · 8 · 12 · 16 · 20 · 24 · 32 · 48. Use 8–16 inside a component, 20–32 between components.</p></div>
+    <div class="g"><p class="t">radius</p><p class="v"><code>--g-r-ctl: 8px</code>: buttons, inputs, tabs.<br><code>--g-r-card: 12px</code>: cards, modals, code surfaces.</p></div>
+    <div class="g"><p class="t">elevation</p><p class="v"><code>--g-shadow-card</code> for resting surfaces, <code>--g-shadow-float</code> for modals and toasts. Borders lead; shadows assist.</p></div>
+    <div class="g"><p class="t">tick</p><p class="v">The ember tick (a 3px slice of the logo gradient) appears <b>once per screen</b>: page title or current nav item. When both are visible, the nav wins.</p></div>
+    <div class="g"><p class="t">theme</p><p class="v">Fills (crimson) and the ink surface never move with theme. Only text, ground and line tokens do.</p></div>
+    <div class="g"><p class="t">focus</p><p class="v">The focus ring is a 2px crimson outline, identical in both themes — the one red visible on either ground.</p></div>
   </div>
 </div>`,
 })
@@ -764,16 +764,16 @@ page({
 .budget{margin-top:30px;border-top:1px solid var(--g-line)}`,
   body: `<div class="doc">
   ${eyebrow('Brand / <b>mark</b>')}
-  <h1 class="h">炎はひとつ、赤には予算がある</h1>
-  <p class="sub">マークは guren.dev の flame（<span style="font-family:var(--g-font-mono);font-size:12px">#FF3C28 → #8B0000</span>）。アプリの中では赤はブランドであると同時に危険色でもあるので、使い道を予算制にする。</p>
+  <h1 class="h">One flame, and a budget for red</h1>
+  <p class="sub">The mark is the guren.dev flame (<span style="font-family:var(--g-font-mono);font-size:12px">#FF3C28 → #8B0000</span>). Inside an app, red is the brand and the danger colour at once — so its uses are budgeted.</p>
   <div class="hero">
     <div class="lockup"><span>${flame(56, 'f1')}</span><span class="wd" style="color:${C.heading}">Guren</span></div>
     <div class="lockup dark"><span>${flame(56, 'f2')}</span><span class="wd" style="color:${C.dHeading}">Guren</span></div>
   </div>
   <div class="budget">
-    <div class="g-callout note"><span class="k">note</span><span class="b">crimson の塗りは一画面に一つ、primary アクションだけ。それ以外の赤いテキストはリンク（accent-text）だけ。</span></div>
-    <div class="g-callout rule"><span class="k">rule</span><span class="b">destructive は赤い塗りにしない。同じ色相しか無いので、塗りは「主役」の意味に取っておく。破壊は<b>アウトライン + 明示動詞</b>（「削除する」）で表し、塗りの赤は確認ステップの中でだけ現れる。</span></div>
-    <div class="g-callout never"><span class="k">never</span><span class="b">flame を透かし・背景装飾にしない。tick を境界線の装飾として繰り返さない。グラデーションをテキストに掛けない。</span></div>
+    <div class="g-callout note"><span class="k">note</span><span class="b">One crimson fill per screen — the primary action. The only other red text is a link (accent-text).</span></div>
+    <div class="g-callout rule"><span class="k">rule</span><span class="b">Destructive actions never get a red fill. With a single hue, the fill is reserved for the protagonist; destruction is an <b>outline + explicit verb</b> (“Delete”), and the red fill appears only inside a confirm step.</span></div>
+    <div class="g-callout never"><span class="k">never</span><span class="b">No flame watermarks or background decoration. No repeating the tick as a border ornament. No gradient text.</span></div>
   </div>
 </div>`,
 })
@@ -782,15 +782,15 @@ page({
 
 const BTN_ROWS = `<div class="stack">
   <div class="row">
-    <button class="g-btn g-btn-primary">保存する</button>
-    <button class="g-btn g-btn-secondary">キャンセル</button>
-    <button class="g-btn g-btn-ghost">下書きに戻す</button>
-    <button class="g-btn g-btn-danger">削除する</button>
+    <button class="g-btn g-btn-primary">Save</button>
+    <button class="g-btn g-btn-secondary">Cancel</button>
+    <button class="g-btn g-btn-ghost">Revert to draft</button>
+    <button class="g-btn g-btn-danger">Delete</button>
   </div>
   <div class="row">
-    <button class="g-btn g-btn-sm g-btn-primary">追加</button>
-    <button class="g-btn g-btn-sm g-btn-secondary">複製</button>
-    <button class="g-btn g-btn-primary" disabled>保存する</button>
+    <button class="g-btn g-btn-sm g-btn-primary">Add</button>
+    <button class="g-btn g-btn-sm g-btn-secondary">Duplicate</button>
+    <button class="g-btn g-btn-primary" disabled>Save</button>
   </div>
 </div>`
 
@@ -800,31 +800,31 @@ page({
   title: 'Guren UI — Buttons',
   body: `<div class="doc">
   ${eyebrow('Components / <b>buttons</b>')}
-  <h1 class="h">ボタン</h1>
-  <p class="sub">primary / secondary / ghost / danger と小サイズ。塗りの赤は primary だけ。danger がアウトラインなのは装飾ではなく、赤ブランドのアプリで破壊と主役を見分けるための構造。</p>
+  <h1 class="h">Buttons</h1>
+  <p class="sub">primary / secondary / ghost / danger plus a small size. The red fill belongs to primary alone — danger being an outline is not decoration, it is how a red-brand app tells destruction from the protagonist.</p>
   ${pair(BTN_ROWS)}
-  <p class="note">primary は一画面に一つ。並ぶときは常に primary が右端。<code>disabled</code> は透明度で示し、色相を変えない。</p>
+  <p class="note">One primary per screen; in a row of actions, primary sits rightmost. <code>disabled</code> is opacity, never a hue change.</p>
 </div>`,
 })
 
 const INPUT_ROWS = `<div class="stack">
   <div class="g-field">
-    <label class="g-label">タイトル<span class="req">*</span></label>
-    <input class="g-input" value="Guren v2.5 リリースノート">
-    <span class="g-help">100文字まで。URL スラッグは自動生成されます。</span>
+    <label class="g-label">Title<span class="req">*</span></label>
+    <input class="g-input" value="Guren v2.5 release notes">
+    <span class="g-help">Up to 100 characters. The URL slug is generated automatically.</span>
   </div>
   <div class="g-field invalid">
-    <label class="g-label">スラッグ</label>
+    <label class="g-label">Slug</label>
     <input class="g-input" value="release notes!">
-    <span class="g-error">英小文字・数字・ハイフンのみ使えます</span>
+    <span class="g-error">Only lowercase letters, digits and hyphens are allowed</span>
   </div>
   <div class="g-field">
-    <label class="g-label">カテゴリ</label>
-    <select class="g-select"><option>リリース</option></select>
+    <label class="g-label">Category</label>
+    <select class="g-select"><option>Releases</option></select>
   </div>
   <div class="row">
-    <label class="g-check"><input type="checkbox" checked><span>公開する</span></label>
-    <label class="g-check"><input type="checkbox"><span>コメントを許可</span></label>
+    <label class="g-check"><input type="checkbox" checked><span>Publish</span></label>
+    <label class="g-check"><input type="checkbox"><span>Allow comments</span></label>
   </div>
 </div>`
 
@@ -834,28 +834,28 @@ page({
   title: 'Guren UI — Inputs',
   body: `<div class="doc">
   ${eyebrow('Components / <b>inputs</b>')}
-  <h1 class="h">入力</h1>
-  <p class="sub">ラベルは 13px/700、値は本文と同じ 14px。エラーは枠を crimson-500 に、メッセージを danger テキストに。<span style="font-family:var(--g-font-mono);font-size:12px">validateBody()</span> が返す 422 のフィールドエラーがそのままこの形に流し込まれる想定。</p>
+  <h1 class="h">Inputs</h1>
+  <p class="sub">Labels are 13px/700; values share the 14px body size. An error turns the border crimson-500 and the message to danger text — the exact shape the 422 field errors from <span style="font-family:var(--g-font-mono);font-size:12px">validateBody()</span> flow into.</p>
   ${pair(INPUT_ROWS)}
-  <p class="note">フォーカスは 2px の crimson リング（<code>outline-offset: -1px</code>）。エラー時も枠色よりリングが勝つので、修正中の欄が常に一番目立つ。</p>
+  <p class="note">Focus is a 2px crimson ring (<code>outline-offset: -1px</code>). The ring beats the error border, so the field being fixed is always the loudest thing on screen.</p>
 </div>`,
 })
 
 const FORM_BODY = `<div class="g-card" style="max-width:460px">
-  <div class="g-card-head"><span class="g-card-title">記事を編集</span><span class="g-badge g-badge-neutral">draft</span></div>
+  <div class="g-card-head"><span class="g-card-title">Edit post</span><span class="g-badge g-badge-neutral">draft</span></div>
   <div class="g-card-body stack">
     <div class="g-field">
-      <label class="g-label">タイトル<span class="req">*</span></label>
+      <label class="g-label">Title<span class="req">*</span></label>
       <input class="g-input" value="">
-      <span class="g-error">タイトルは必須です</span>
+      <span class="g-error">Title is required</span>
     </div>
     <div class="g-field">
-      <label class="g-label">本文<span class="req">*</span></label>
-      <textarea class="g-textarea" rows="3" placeholder="Markdown で書けます"></textarea>
+      <label class="g-label">Body<span class="req">*</span></label>
+      <textarea class="g-textarea" rows="3" placeholder="Markdown is supported"></textarea>
     </div>
     <div class="row" style="justify-content:flex-end;gap:10px;margin-top:4px">
-      <button class="g-btn g-btn-secondary">キャンセル</button>
-      <button class="g-btn g-btn-primary">保存する</button>
+      <button class="g-btn g-btn-secondary">Cancel</button>
+      <button class="g-btn g-btn-primary">Save</button>
     </div>
   </div>
 </div>`
@@ -866,8 +866,8 @@ page({
   title: 'Guren UI — Form',
   body: `<div class="doc">
   ${eyebrow('Components / <b>form</b>')}
-  <h1 class="h">フォーム</h1>
-  <p class="sub">カードに載せた編集フォーム。422 で返ったエラーはフィールドの直下に置き、サマリーの箱は作らない。エラーは発生した場所で読むもの。アクション行は右揃え、primary が右端。</p>
+  <h1 class="h">Form</h1>
+  <p class="sub">An edit form on a card. Errors from a 422 sit directly under their fields — no summary box, because an error is read where it happened. The action row is right-aligned, primary rightmost.</p>
   ${pair(FORM_BODY)}
 </div>`,
 })
@@ -892,22 +892,22 @@ page({
   title: 'Guren UI — Badges',
   body: `<div class="doc">
   ${eyebrow('Components / <b>badges</b>')}
-  <h1 class="h">バッジ</h1>
-  <p class="sub">状態はモノスペースの小文字で書く。バッジの中身は機械が発行した語彙（published / failed / draft）であって文ではない。点は currentColor なので、テキストが読めればインジケータも見える。</p>
+  <h1 class="h">Badges</h1>
+  <p class="sub">State is written in lowercase mono — a badge holds machine-issued vocabulary (published / failed / draft), not a sentence. The dot is currentColor: if the text is readable, so is the indicator.</p>
   ${pair(BADGE_ROWS)}
-  <p class="note">ok は foam 系、warn は gold 系、danger は crimson 系、それ以外はすべて neutral。四種で足りない状態語彙は、色ではなくラベルで増やす。</p>
+  <p class="note">ok is the foam family, warn is gold, danger is crimson, everything else is neutral. When four kinds are not enough, grow the label vocabulary, not the palette.</p>
 </div>`,
 })
 
 const CALLOUT_ROWS = `<div>
-  <div class="g-callout note"><span class="k">note</span><span class="b">マイグレーションは <code>bun run db:migrate</code> で適用されます。</span></div>
-  <div class="g-callout ok"><span class="k">ok</span><span class="b">42 routes checked、コントローラとページの対応はすべて一致。</span></div>
-  <div class="g-callout rule"><span class="k">rule</span><span class="b">本番では <code>keyGenerator</code> を必ず指定する。既定のレートリミットキーは Bun 専用。</span></div>
-  <div class="g-callout never"><span class="k">never</span><span class="b"><code>X-Testing-User</code> ヘッダを本番で信用しない。</span></div>
+  <div class="g-callout note"><span class="k">note</span><span class="b">Migrations are applied with <code>bun run db:migrate</code>.</span></div>
+  <div class="g-callout ok"><span class="k">ok</span><span class="b">42 routes checked — controllers and pages all agree.</span></div>
+  <div class="g-callout rule"><span class="k">rule</span><span class="b">Always set <code>keyGenerator</code> in production; the default rate-limit key is Bun-only.</span></div>
+  <div class="g-callout never"><span class="k">never</span><span class="b">Never trust the <code>X-Testing-User</code> header in production.</span></div>
 </div>
 <div style="margin-top:22px" class="stack">
-  <div class="g-toast ok"><span class="k">ok</span><span>記事を保存しました</span></div>
-  <div class="g-toast never"><span class="k">error</span><span>保存に失敗しました。接続を確認してください</span></div>
+  <div class="g-toast ok"><span class="k">ok</span><span>Post saved</span></div>
+  <div class="g-toast never"><span class="k">error</span><span>Save failed — check your connection</span></div>
 </div>`
 
 page({
@@ -916,8 +916,8 @@ page({
   title: 'Guren UI — Callouts & flash',
   body: `<div class="doc">
   ${eyebrow('Components / <b>callouts</b>')}
-  <h1 class="h">コールアウトは箱ではなく診断行</h1>
-  <p class="sub">guren check の出力と同じ解剖で、固定ガターのモノのキー、ヘアライン、普通の本文。キーの語彙は note / ok / rule / never。フラッシュ（トースト）は同じ行を一枚だけ浮かせたもので、左端 3px にチップ色。</p>
+  <h1 class="h">Callouts are diagnostic rows, not boxes</h1>
+  <p class="sub">The same anatomy as guren check output: a mono key in a fixed gutter, a hairline, ordinary body text. The key vocabulary is note / ok / rule / never. A flash (toast) is the same row floated once, with the chip colour on its 3px left edge.</p>
   ${pair(CALLOUT_ROWS)}
 </div>`,
 })
@@ -928,7 +928,7 @@ const CARD_ROWS = `<div class="stack">
     <div class="g-card" style="flex:1"><div class="g-card-body"><p style="margin:0;font:500 11.5px/1.7 var(--g-font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted)">queue</p><p style="margin:2px 0 0;font-size:24px;font-weight:700;color:var(--g-heading);font-family:var(--g-font-mono)">3</p><p style="margin:2px 0 0;font-size:12px;color:var(--g-text-2)">2 workers idle</p></div></div>
   </div>
   <div class="g-card">
-    <div class="g-card-head"><span class="g-card-title">最近のデプロイ</span><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">すべて見る</a></div>
+    <div class="g-card-head"><span class="g-card-title">Recent deploys</span><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">View all</a></div>
     <div class="g-card-body" style="padding-top:12px;font-size:13px;color:var(--g-text-2)">2026-08-20 14:32 · <span style="font-family:var(--g-font-mono);font-size:12px">fc22c89</span> · production</div>
   </div>
 </div>`
@@ -939,8 +939,8 @@ page({
   title: 'Guren UI — Cards',
   body: `<div class="doc">
   ${eyebrow('Components / <b>cards</b>')}
-  <h1 class="h">カード</h1>
-  <p class="sub">枠線 + わずかな影。統計カードのラベルはテーブルヘッダと同じモノ大文字、数値はモノで揃える。カードの見出し行にはタイトルと、右端にリンクかバッジを一つだけ。</p>
+  <h1 class="h">Cards</h1>
+  <p class="sub">A border plus a whisper of shadow. Stat-card labels share the table header's mono caps; values line up in mono. A card head carries the title and exactly one thing on the right — a link or a badge.</p>
   ${pair(CARD_ROWS)}
 </div>`,
 })
@@ -948,9 +948,9 @@ page({
 const TABLE_ROWS = `<div class="g-card"><table class="g-table">
   <thead><tr><th>title</th><th>status</th><th>author</th><th class="num">views</th><th>updated</th></tr></thead>
   <tbody>
-    <tr><td>Guren v2.5 リリースノート</td><td><span class="g-badge g-badge-ok">published</span></td><td>浦田 大貴</td><td class="num">4,182</td><td class="id">2026-08-19</td></tr>
-    <tr><td>Inertia の型付きフォーム</td><td><span class="g-badge g-badge-neutral">draft</span></td><td>浦田 大貴</td><td class="num">—</td><td class="id">2026-08-18</td></tr>
-    <tr><td>D1 で動かす Guren</td><td><span class="g-badge g-badge-warn">pending</span></td><td>浦田 大貴</td><td class="num">903</td><td class="id">2026-08-12</td></tr>
+    <tr><td>Guren v2.5 release notes</td><td><span class="g-badge g-badge-ok">published</span></td><td>Daiki Urata</td><td class="num">4,182</td><td class="id">2026-08-19</td></tr>
+    <tr><td>Typed forms with Inertia</td><td><span class="g-badge g-badge-neutral">draft</span></td><td>Daiki Urata</td><td class="num">—</td><td class="id">2026-08-18</td></tr>
+    <tr><td>Guren on Cloudflare D1</td><td><span class="g-badge g-badge-warn">pending</span></td><td>Daiki Urata</td><td class="num">903</td><td class="id">2026-08-12</td></tr>
   </tbody>
 </table></div>`
 
@@ -961,8 +961,8 @@ page({
   width: 1180,
   body: `<div class="doc">
   ${eyebrow('Components / <b>table</b>')}
-  <h1 class="h">テーブル</h1>
-  <p class="sub">ヘッダはモノ大文字 11.5px、数値列はモノ + 右揃え、日時と ID はモノの muted。行ホバーは raised の地色。選択でも強調でもなく、ただの現在地。</p>
+  <h1 class="h">Table</h1>
+  <p class="sub">Headers are 11.5px mono caps; numeric columns are mono and right-aligned; dates and IDs are muted mono. Row hover is the raised ground — not selection, not emphasis, just where you are.</p>
   ${pair(TABLE_ROWS)}
 </div>`,
 })
@@ -972,19 +972,19 @@ const NAV_ROWS = `<div style="border:1px solid var(--g-line);border-radius:12px;
     <span style="display:flex;align-items:center;gap:9px">${flame(22, 'nf')}<b style="font-size:15px;color:var(--g-heading)">Guren Blog</b></span>
     <span style="flex:1"></span>
     <span class="g-kbd">⌘K</span>
-    <span style="width:28px;height:28px;border-radius:999px;background:var(--g-accent-tint);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--g-accent-text)">浦</span>
+    <span style="width:28px;height:28px;border-radius:999px;background:var(--g-accent-tint);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--g-accent-text)">DU</span>
   </div>
   <div style="display:flex">
     <nav class="g-side" style="min-height:230px">
       <p class="sec">content</p>
-      <a href="#" class="active">記事</a>
-      <a href="#">カテゴリ</a>
-      <a href="#">コメント</a>
+      <a href="#" class="active">Posts</a>
+      <a href="#">Categories</a>
+      <a href="#">Comments</a>
       <p class="sec">system</p>
-      <a href="#">ジョブ</a>
-      <a href="#">設定</a>
+      <a href="#">Jobs</a>
+      <a href="#">Settings</a>
     </nav>
-    <div style="flex:1;padding:20px;background:var(--g-page)"><span style="font-size:20px;font-weight:700;color:var(--g-heading);letter-spacing:-.01em">記事</span></div>
+    <div style="flex:1;padding:20px;background:var(--g-page)"><span style="font-size:20px;font-weight:700;color:var(--g-heading);letter-spacing:-.01em">Posts</span></div>
   </div>
 </div>`
 
@@ -995,20 +995,20 @@ page({
   width: 1240,
   body: `<div class="doc">
   ${eyebrow('Components / <b>navigation</b>')}
-  <h1 class="h">ナビゲーション</h1>
-  <p class="sub">トップバー + サイドバー。現在地は ember tick と accent の淡い wash。ナビに tick がある画面では、ページタイトルの tick は省く（一画面一箇所の規則）。セクション見出しはテーブルヘッダと同じモノ大文字。</p>
+  <h1 class="h">Navigation</h1>
+  <p class="sub">Topbar plus sidebar. The current place is the ember tick and a pale accent wash. On a screen where the nav carries the tick, the page title goes without one (the once-per-screen rule). Section headings share the table header's mono caps.</p>
   ${pair(NAV_ROWS)}
 </div>`,
 })
 
 const TABS_ROWS = `<div class="stack">
   <div class="g-tabs">
-    <a href="#" class="active">概要</a>
-    <a href="#">リビジョン</a>
-    <a href="#">コメント<span style="margin-left:6px" class="g-badge g-badge-neutral">3</span></a>
+    <a href="#" class="active">Overview</a>
+    <a href="#">Revisions</a>
+    <a href="#">Comments<span style="margin-left:6px" class="g-badge g-badge-neutral">3</span></a>
   </div>
   <div class="row" style="justify-content:space-between">
-    <span style="font-size:12.5px;color:var(--g-text-2)">128 件中 21–40 件</span>
+    <span style="font-size:12.5px;color:var(--g-text-2)">Showing 21–40 of 128</span>
     <nav class="g-pages">
       <a href="#">←</a><a href="#">1</a><a href="#" class="active">2</a><a href="#">3</a><a href="#">…</a><a href="#">7</a><a href="#">→</a>
     </nav>
@@ -1021,18 +1021,18 @@ page({
   title: 'Guren UI — Tabs & pagination',
   body: `<div class="doc">
   ${eyebrow('Components / <b>tabs</b>')}
-  <h1 class="h">タブとページネーション</h1>
-  <p class="sub">タブの現在地はタイトルと同じ tick を下線として使う。ページ番号はモノ。数字の仕事だから。現在ページだけが画面上の crimson 塗りの予算を使うので、同じ画面に primary ボタンがあるときはよく見え方を確かめること。</p>
+  <h1 class="h">Tabs & pagination</h1>
+  <p class="sub">The active tab reuses the title's tick as an underline. Page numbers are mono — they are digits at work. The current page spends a small piece of the screen's crimson fill budget, so check the composition when a primary button shares the screen.</p>
   ${pair(TABS_ROWS)}
 </div>`,
 })
 
 const MODAL_ROWS = `<div class="g-modal">
-  <div class="g-modal-head"><span class="g-card-title">記事を削除しますか？</span></div>
-  <div class="g-modal-body">「Guren v2.5 リリースノート」を削除します。この操作は取り消せません。公開済みの URL は 404 になります。</div>
+  <div class="g-modal-head"><span class="g-card-title">Delete this post?</span></div>
+  <div class="g-modal-body">This deletes “Guren v2.5 release notes”. It cannot be undone, and the published URL will return 404.</div>
   <div class="g-modal-foot">
-    <button class="g-btn g-btn-secondary">キャンセル</button>
-    <button class="g-btn g-btn-primary" style="background:var(--g-danger-chip)">削除する</button>
+    <button class="g-btn g-btn-secondary">Cancel</button>
+    <button class="g-btn g-btn-primary" style="background:var(--g-danger-chip)">Delete</button>
   </div>
 </div>`
 
@@ -1042,10 +1042,10 @@ page({
   title: 'Guren UI — Modal',
   body: `<div class="doc">
   ${eyebrow('Components / <b>modal</b>')}
-  <h1 class="h">モーダル</h1>
-  <p class="sub">破壊の確認ステップ。ここで初めて赤い塗りが「削除する」に移る。本文は何が起き、何が戻らないかを具体的に書く。フッターは raised の地でアクション行を分ける。</p>
+  <h1 class="h">Modal</h1>
+  <p class="sub">The confirm step for destruction — this is where the red fill finally moves to “Delete”. The body says exactly what happens and what will not come back. The footer separates the action row on the raised ground.</p>
   ${pair(MODAL_ROWS)}
-  <p class="note">確認モーダルの primary が赤い塗りになるのは、この画面の主役が破壊そのものだから。一画面一塗りの予算は破られていない。</p>
+  <p class="note">The confirm modal's primary is a red fill because destruction is this screen's protagonist — the one-fill-per-screen budget holds.</p>
 </div>`,
 })
 
@@ -1061,18 +1061,18 @@ page({
   title: 'Guren UI — Code & terminal',
   body: `<div class="doc">
   ${eyebrow('Components / <b>code</b>')}
-  <h1 class="h">コード面はテーマを持たない</h1>
-  <p class="sub">ink <span style="font-family:var(--g-font-mono);font-size:12px">${C.ink}</span> は CodeBlock.tsx がライトモードでも使っている面で、本キットでも両テーマ共通。シンタックスは docs と同じ rose-pine-moon の foam / gold / iris。</p>
+  <h1 class="h">The code surface has no theme</h1>
+  <p class="sub">ink <span style="font-family:var(--g-font-mono);font-size:12px">${C.ink}</span> is the surface CodeBlock.tsx uses even in light mode, and this kit keeps it identical in both themes. Syntax is the docs' rose-pine-moon: foam / gold / iris.</p>
   ${pair(CODE_ROWS)}
-  <p class="note">ink の上のテキストは bone <code>${C.bone}</code>（${cr(C.bone, C.ink)}:1）。gold は「注目すべき一行」に、iris はキーワードにだけ。UI の signal 色（ok/warn/danger）とコードのシンタックス色は同族だが役割が違う。混ぜない。</p>
+  <p class="note">Text on ink is bone <code>${C.bone}</code> (${cr(C.bone, C.ink)}:1). gold marks the one line that needs attention; iris is keywords only. The UI signal colours (ok/warn/danger) and the code syntax colours are cousins with different jobs — never mix them.</p>
 </div>`,
 })
 
 const EMPTY_ROWS = `<div class="g-empty">
   ${flame(44, 'ef', 0.45)}
-  <h3>まだ記事がありません</h3>
-  <p>最初の記事を作成すると、ここに一覧が表示されます。CLI からは <span style="font-family:var(--g-font-mono);font-size:12px">bunx guren make:feature Post</span> で一式を生成できます。</p>
-  <button class="g-btn g-btn-primary">記事を作成</button>
+  <h3>No posts yet</h3>
+  <p>Create your first post and the list will appear here. From the CLI, <span style="font-family:var(--g-font-mono);font-size:12px">bunx guren make:feature Post</span> scaffolds the whole set.</p>
+  <button class="g-btn g-btn-primary">Create post</button>
 </div>`
 
 page({
@@ -1081,8 +1081,8 @@ page({
   title: 'Guren UI — Empty state',
   body: `<div class="doc">
   ${eyebrow('Components / <b>empty</b>')}
-  <h1 class="h">空の状態</h1>
-  <p class="sub">flame の透かしを許す唯一の場所（0.45 の不透明度、44px）。何が無いのかと、次の一手を一つだけ。破線の枠は「まだ何も無い」ことの記号で、常設のカードとは区別する。</p>
+  <h1 class="h">Empty state</h1>
+  <p class="sub">The one place a flame watermark is allowed (44px at 0.45 opacity). Say what is missing and offer exactly one next step. The dashed border is the sign of “nothing here yet” — distinct from any resting card.</p>
   ${pair(EMPTY_ROWS)}
 </div>`,
 })
@@ -1099,8 +1099,8 @@ page({
   css: SCREEN_CSS,
   body: `<div class="doc">
   ${eyebrow('Patterns / <b>login</b>')}
-  <h1 class="h">ログイン</h1>
-  <p class="sub">make:auth が生成する画面の姿。中央一枚のカード、ブランドはロックアップ一つ、赤い塗りは「ログイン」だけ。</p>
+  <h1 class="h">Login</h1>
+  <p class="sub">The screen make:auth generates. One centered card, one brand lockup, and the only red fill is “Sign in”.</p>
   <div class="pair">
     ${['', 'dark']
       .map(
@@ -1109,10 +1109,10 @@ page({
       <div style="width:320px">
         <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:22px">${flame(30, 'lf' + (d || 'l'))}<b style="font-size:19px;color:var(--g-heading)">Guren Blog</b></div>
         <div class="g-card"><div class="g-card-body stack">
-          <div class="g-field"><label class="g-label">メールアドレス</label><input class="g-input" value="daiki@example.com"></div>
-          <div class="g-field"><label class="g-label">パスワード</label><input class="g-input" type="password" value="········"></div>
-          <button class="g-btn g-btn-primary" style="justify-content:center">ログイン</button>
-          <a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none;text-align:center">パスワードをお忘れですか？</a>
+          <div class="g-field"><label class="g-label">Email</label><input class="g-input" value="daiki@example.com"></div>
+          <div class="g-field"><label class="g-label">Password</label><input class="g-input" type="password" value="········"></div>
+          <button class="g-btn g-btn-primary" style="justify-content:center">Sign in</button>
+          <a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none;text-align:center">Forgot your password?</a>
         </div></div>
       </div>
     </div></div>`,
@@ -1127,30 +1127,30 @@ function crudScreen(idSuffix: string): string {
   <div class="g-topbar">
     <span style="display:flex;align-items:center;gap:9px">${flame(22, 'cf' + idSuffix)}<b style="font-size:15px;color:var(--g-heading)">Guren Blog</b></span>
     <span style="flex:1"></span>
-    <span style="width:28px;height:28px;border-radius:999px;background:var(--g-accent-tint);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--g-accent-text)">浦</span>
+    <span style="width:28px;height:28px;border-radius:999px;background:var(--g-accent-tint);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--g-accent-text)">DU</span>
   </div>
   <div style="display:flex">
     <nav class="g-side">
       <p class="sec">content</p>
-      <a href="#" class="active">記事</a>
-      <a href="#">カテゴリ</a>
+      <a href="#" class="active">Posts</a>
+      <a href="#">Categories</a>
       <p class="sec">system</p>
-      <a href="#">ジョブ</a>
+      <a href="#">Jobs</a>
     </nav>
     <div style="flex:1;padding:22px 26px;background:var(--g-page)">
       <div class="row" style="justify-content:space-between;margin-bottom:16px">
-        <span style="font-size:20px;font-weight:700;color:var(--g-heading)">記事</span>
+        <span style="font-size:20px;font-weight:700;color:var(--g-heading)">Posts</span>
         <span class="row" style="gap:10px">
-          <input class="g-input" placeholder="検索…" style="width:200px;padding:6px 12px">
-          <button class="g-btn g-btn-primary">新規作成</button>
+          <input class="g-input" placeholder="Search…" style="width:200px;padding:6px 12px">
+          <button class="g-btn g-btn-primary">New post</button>
         </span>
       </div>
       <div class="g-card"><table class="g-table">
         <thead><tr><th>title</th><th>status</th><th class="num">views</th><th>updated</th><th></th></tr></thead>
         <tbody>
-          <tr><td>Guren v2.5 リリースノート</td><td><span class="g-badge g-badge-ok">published</span></td><td class="num">4,182</td><td class="id">2026-08-19</td><td style="text-align:right"><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">編集</a></td></tr>
-          <tr><td>Inertia の型付きフォーム</td><td><span class="g-badge g-badge-neutral">draft</span></td><td class="num">—</td><td class="id">2026-08-18</td><td style="text-align:right"><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">編集</a></td></tr>
-          <tr><td>D1 で動かす Guren</td><td><span class="g-badge g-badge-warn">pending</span></td><td class="num">903</td><td class="id">2026-08-12</td><td style="text-align:right"><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">編集</a></td></tr>
+          <tr><td>Guren v2.5 release notes</td><td><span class="g-badge g-badge-ok">published</span></td><td class="num">4,182</td><td class="id">2026-08-19</td><td style="text-align:right"><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">Edit</a></td></tr>
+          <tr><td>Typed forms with Inertia</td><td><span class="g-badge g-badge-neutral">draft</span></td><td class="num">—</td><td class="id">2026-08-18</td><td style="text-align:right"><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">Edit</a></td></tr>
+          <tr><td>Guren on Cloudflare D1</td><td><span class="g-badge g-badge-warn">pending</span></td><td class="num">903</td><td class="id">2026-08-12</td><td style="text-align:right"><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">Edit</a></td></tr>
         </tbody>
       </table></div>
       <div class="row" style="justify-content:flex-end;margin-top:14px">
@@ -1169,8 +1169,8 @@ page({
   css: SCREEN_CSS,
   body: `<div class="doc">
   ${eyebrow('Patterns / <b>crud</b>')}
-  <h1 class="h">CRUD 一覧</h1>
-  <p class="sub">make:feature Post が組み立てる index の姿。ナビの tick が現在地なので、ページタイトルは素のまま。塗りの赤は「新規作成」一つ（ページネーションの現在頁は例外的に小さく共存する）。</p>
+  <h1 class="h">CRUD index</h1>
+  <p class="sub">The index make:feature Post assembles. The nav tick marks the current place, so the page title goes bare. The one red fill is “New post” (the current page number coexists as a small exception).</p>
   <div class="pair2">
     ${crudScreen('l')}
     <div class="dark">${crudScreen('d')}</div>
@@ -1186,7 +1186,7 @@ function dashScreen(idSuffix: string): string {
     <span class="g-kbd">⌘K</span>
   </div>
   <div style="padding:22px 26px">
-    <span class="g-title">ダッシュボード</span>
+    <span class="g-title">Dashboard</span>
     <div class="row" style="flex-wrap:nowrap;margin-top:18px">
       ${[
         ['posts', '128', '+12 this week', 'var(--g-ok)'],
@@ -1201,19 +1201,19 @@ function dashScreen(idSuffix: string): string {
     </div>
     <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:16px">
       <div class="g-card">
-        <div class="g-card-head"><span class="g-card-title">最近の記事</span><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">すべて見る</a></div>
+        <div class="g-card-head"><span class="g-card-title">Recent posts</span><a href="#" style="font-size:12.5px;color:var(--g-accent-text);text-decoration:none">View all</a></div>
         <table class="g-table">
           <tbody>
-            <tr><td>Guren v2.5 リリースノート</td><td style="text-align:right"><span class="g-badge g-badge-ok">published</span></td></tr>
-            <tr><td>Inertia の型付きフォーム</td><td style="text-align:right"><span class="g-badge g-badge-neutral">draft</span></td></tr>
+            <tr><td>Guren v2.5 release notes</td><td style="text-align:right"><span class="g-badge g-badge-ok">published</span></td></tr>
+            <tr><td>Typed forms with Inertia</td><td style="text-align:right"><span class="g-badge g-badge-neutral">draft</span></td></tr>
           </tbody>
         </table>
       </div>
       <div class="g-card">
-        <div class="g-card-head"><span class="g-card-title">システム</span></div>
+        <div class="g-card-head"><span class="g-card-title">System</span></div>
         <div class="g-card-body" style="padding-top:10px">
           <div class="g-callout ok" style="border-top:none"><span class="k">ok</span><span class="b">guren check — 42 routes, 0 drift</span></div>
-          <div class="g-callout never"><span class="k">never</span><span class="b">SendDigestJob が 3 回失敗、<a href="#" style="color:var(--g-accent-text)">ログを見る</a></span></div>
+          <div class="g-callout never"><span class="k">never</span><span class="b">SendDigestJob failed 3 times — <a href="#" style="color:var(--g-accent-text)">view logs</a></span></div>
         </div>
       </div>
     </div>
@@ -1229,8 +1229,8 @@ page({
   css: SCREEN_CSS,
   body: `<div class="doc">
   ${eyebrow('Patterns / <b>dashboard</b>')}
-  <h1 class="h">ダッシュボード</h1>
-  <p class="sub">統計カードの列 + テーブル + 診断行。数値はすべてモノ。ここに primary ボタンは無い。ダッシュボードは読む画面で、主役のアクションを持たない。</p>
+  <h1 class="h">Dashboard</h1>
+  <p class="sub">A row of stat cards, a table, diagnostic rows. Every number is mono. There is no primary button here — a dashboard is a reading screen; it has no protagonist action.</p>
   <div class="pair2">
     ${dashScreen('l')}
     <div class="dark">${dashScreen('d')}</div>
@@ -1282,7 +1282,7 @@ edit files in \`dist/\` by hand.
 
 /* contact sheet at repo root for local review */
 const sheet = `<!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Guren UI — contact sheet</title>
