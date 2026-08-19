@@ -380,27 +380,26 @@ const KIT = `/* Guren UI — component classes. Everything reads the tokens abov
 .g-callout .b { color: var(--g-text); }
 .g-callout .b code { font-family: var(--g-font-mono); font-size: 12.5px; color: var(--g-accent-text); }
 
-/* flash / toast — one diagnostic row, floated */
+/* flash / toast — one line of check output, printed on ink and floated.
+   The ink surface is themeless, so a flash looks identical on both grounds;
+   no coloured border, no tinted box — the mono key in its gutter is the
+   entire signal, exactly as it is in the terminal. */
 .g-toast {
   display: inline-grid;
-  grid-template-columns: auto 1fr;
-  gap: 12px;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
   align-items: baseline;
-  padding: 12px 18px;
+  padding: 11px 18px 11px 14px;
   border-radius: var(--g-r-ctl);
-  background: var(--g-panel);
-  border: 1px solid var(--g-line);
-  border-left: 3px solid var(--g-line-strong);
+  background: var(--g-ink);
+  color: ${C.bone};
   box-shadow: var(--g-shadow-float);
   font-size: 13.5px;
 }
-.g-toast .k { font: 700 12.5px/1.7 var(--g-font-mono); }
-.g-toast.ok { border-left-color: var(--g-ok-chip); }
-.g-toast.ok .k { color: var(--g-ok); }
-.g-toast.rule { border-left-color: var(--g-warn-chip); }
-.g-toast.rule .k { color: var(--g-warn); }
-.g-toast.never { border-left-color: var(--g-danger-chip); }
-.g-toast.never .k { color: var(--g-danger); }
+.g-toast .k { font: 700 12.5px/1.7 var(--g-font-mono); text-align: right; }
+.g-toast.ok .k { color: ${C.foam}; }
+.g-toast.rule .k { color: ${C.gold}; }
+.g-toast.never .k { color: ${C.dDanger}; }
 
 /* ── table ───────────────────────────────────────────────────────────────── */
 .g-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
@@ -917,7 +916,7 @@ page({
   body: `<div class="doc">
   ${eyebrow('Components / <b>callouts</b>')}
   <h1 class="h">Callouts are diagnostic rows, not boxes</h1>
-  <p class="sub">The same anatomy as guren check output: a mono key in a fixed gutter, a hairline, ordinary body text. The key vocabulary is note / ok / rule / never. A flash (toast) is the same row floated once, with the chip colour on its 3px left edge.</p>
+  <p class="sub">The same anatomy as guren check output: a mono key in a fixed gutter, a hairline, ordinary body text. The key vocabulary is note / ok / rule / never. A flash (toast) is one line of that output printed on ink and floated — no coloured border, no tinted box; the key in its gutter is the entire signal, and because ink is themeless the flash is identical on both grounds.</p>
   ${pair(CALLOUT_ROWS)}
 </div>`,
 })
