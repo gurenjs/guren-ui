@@ -392,6 +392,11 @@ const KIT = `/* Guren UI — component classes. Everything reads the tokens abov
   padding: 11px 18px 11px 14px;
   border-radius: var(--g-r-ctl);
   background: var(--g-ink);
+  /* constant hairline: on the dark ground ink vs panel is 1.13:1 and the
+     edge would ride on shadow alone; bone at 0.4 over ink blends to an edge
+     of ~3.4:1 against the dark panel, and disappears into the 18:1 contrast
+     the ink block already has on the light ground. */
+  border: 1px solid rgba(255, 245, 245, 0.4);
   color: ${C.bone};
   box-shadow: var(--g-shadow-float);
   font-size: 13.5px;
@@ -918,6 +923,7 @@ page({
   <h1 class="h">Callouts are diagnostic rows, not boxes</h1>
   <p class="sub">The same anatomy as guren check output: a mono key in a fixed gutter, a hairline, ordinary body text. The key vocabulary is note / ok / rule / never. A flash (toast) is one line of that output printed on ink and floated — no coloured border, no tinted box; the key in its gutter is the entire signal, and because ink is themeless the flash is identical on both grounds.</p>
   ${pair(CALLOUT_ROWS)}
+  <p class="note">Measured on ink: keys run ${cr(C.dDanger, C.ink)}–${cr(C.gold, C.ink)}:1 (foam ${cr(C.foam, C.ink)}:1, gold ${cr(C.gold, C.ink)}:1, blush ${cr(C.dDanger, C.ink)}:1), body text ${cr(C.bone, C.ink)}:1 — all AAA. The toast's constant bone hairline exists for the dark ground, where ink against the panel is only ${cr(C.ink, C.dPanel)}:1 and the edge would otherwise ride on shadow alone; blended over ink it clears 3:1 against the panel.</p>
 </div>`,
 })
 
